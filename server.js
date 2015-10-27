@@ -50,8 +50,7 @@ var express = require('express'),
 			    console.log('Message sent: ' + info.response);
 			});		
 		});	
-	}
-
+	}	
 	getUsers(sendEmails);
 	app.use(bodyParser.urlencoded({extended:true}));
 	app.use(bodyParser.json());
@@ -66,7 +65,11 @@ var express = require('express'),
 	app.use(morgan('dev'));
 	mongoose.connect(config.database,function(error){
 		if(error)console.log(error);
-		else console.log("mongo created");
+		else {
+			User.find({},function(err, users){
+				console.log(users);
+			});
+		}
 	});		
 	app.use(express.static(__dirname + '/public'));
 
