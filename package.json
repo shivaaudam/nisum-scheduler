@@ -1,0 +1,28 @@
+{
+  "name": "nisumPlanner",
+  "version": "1.0.0",
+  "engines": {
+    "node": "0.10.29"
+  },
+  "description": "nisum internal planner",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "express": "^4.13.3",
+    "jsonwebtoken": "^5.0.5",
+    "mongoose": "^4.1.7",
+    "morgan": "^1.6.1",
+    "bcrypt-nodejs": "0.0.3"
+  },
+  "author": "shiva shankar",
+  "license": "ISC",
+  "devDependencies": {
+    "bluebird": "^2.10.2",
+    "forever": "^0.15.1",
+    "mongodb": "^2.0.46",
+    "node-windows": "^0.1.10"
+  }
+}
