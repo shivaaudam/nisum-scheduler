@@ -1,7 +1,7 @@
 <div class="row col-sm-6 col-sm-offset-3">
 	<div class="jumbotron">
 		<h1>Register</h1>
-		<form name="registerForm" ng-submit="register.doRegister()">
+		<form name="registerForm" novalidate ng-submit="registerForm.$valid && register.doRegister()">
 			<!-- USERNAME INPUT -->
 			<div class="form-group">
 				<label>Username</label>
@@ -12,16 +12,15 @@
 			<div class="form-group">
 				<label>Password</label>
 				<input type="password" class="form-control" placeholder="******" ng-model="register.registerData.password">
+				<span ng-show="registerForm.$invalid" class="error">wrong email!</span>
 			</div>
-
-			<!-- LOGIN BUTTON -->
 			<div class="alert alert-success" ng-if="register.success">
 				{{ register.success }}
 			</div>
 			<div class="alert alert-danger" ng-if="register.error">
 				{{ register.error }}
 			</div>
-			<!-- LOGIN BUTTON -->			
+			<!-- Register BUTTON -->			
 			<button type="submit" class="btn btn-block btn-primary">
 				<span ng-if="!login.processing">Register</span>
 				<span ng-if="login.processing" class="spinner">

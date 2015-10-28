@@ -3,8 +3,7 @@ angular.module('mainCtrl',['userService'])
 	var vm = this;
 		vm.error = "";
 		vm.success = "";
-		vm.doRegister = function(){		
-			console.log(vm.registerData);
+		vm.doRegister = function(){	
 			User.register(vm.registerData)
 			.success(function(data){
 				console.log(data);

@@ -9,8 +9,6 @@ var express = require('express'),
 	nodemailer = require('nodemailer'),
 	schedule = require('node-schedule'),	
 	cronJob = require('cron').CronJob,
-	Promise = require('bluebird'),
-	mongoClient = Promise.promisifyAll(require('mongodb')).MongoClient,
 	usersList,
 	mailOptions,
 	job,
@@ -91,33 +89,33 @@ var express = require('express'),
 		})
 	});
 
-	app.post('/login',function(req, res){
-		console.log(req.body);
+	// app.post('/login',function(req, res){
+	// 	console.log(req.body);
 
-		User.findOne({
-			username:req.body.username
-		}).select('username password').exec(function(err, user){
-			console.log(user);
-			if(err){
-				throw err;
-			}
-			if(!user){
-				res.json({success:false,message:"user not found"});
-			}
-			else if(user){
-				var valid = user.comparePassword(req.body.password);
-				if(!valid){
-					res.json({
-						success:false,message:"Authentication failed wrong password"
-					})
-				}
-				else{
+	// 	User.findOne({
+	// 		username:req.body.username
+	// 	}).select('username password').exec(function(err, user){
+	// 		console.log(user);
+	// 		if(err){
+	// 			throw err;
+	// 		}
+	// 		if(!user){
+	// 			res.json({success:false,message:"user not found"});
+	// 		}
+	// 		else if(user){
+	// 			var valid = user.comparePassword(req.body.password);
+	// 			if(!valid){
+	// 				res.json({
+	// 					success:false,message:"Authentication failed wrong password"
+	// 				})
+	// 			}
+	// 			else{
 
-				}
-			}
+	// 			}
+	// 		}
 
-		})
-	})
+	// 	})
+	// })
 
 	app.listen(config.port);
 	console.log("listening at 3000");
