@@ -61,7 +61,7 @@ var express = require('express'),
 	});
 
 	app.use(morgan('dev'));
-	mongoose.connect(config.database,function(error){
+	mongoose.connect(config.database,function(error,db){
 		if(error)console.log(error);
 		else console.log("mongo connected");
 	});		
