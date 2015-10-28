@@ -61,9 +61,10 @@ var express = require('express'),
 	});
 
 	app.use(morgan('dev'));
-	mongoose.connect(config.database,function(error,db){
-		if(error)console.log(error);
-		else console.log("mongo connected");
+	console.log(process.env.MONGOLAB_URI);
+	mongoose.connect(process.env.MONGOLAB_URI,function(error,db){
+		if(error) console.log(error);
+		else console.log("mongo connected"+'db:'+db);
 	});		
 	app.use(express.static(__dirname + '/public'));
 
