@@ -3,7 +3,7 @@ angular.module('userService',[])
 	var userFactory={};
 
 	userFactory.register = function(userData){
-		console.log(userData);
+		//console.log(userData);
 		return $http.post('/register',userData);
 	};
 

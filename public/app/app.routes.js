@@ -13,7 +13,12 @@ angular.module('app.routes',['ngRoute'])
 			templateUrl:'app/views/pages/register.html',
 			controller:'mainController',
 			controllerAs:'register'
-		})		
+		}).
+		when('/success',{
+			templateUrl:"app/views/pages/success.html",
+			controller:"mainController",
+			controllerAs:"success"
+		})
 		
 		$locationProvider.html5Mode(true);
 	});

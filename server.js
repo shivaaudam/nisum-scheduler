@@ -41,7 +41,7 @@ var express = require('express'),
 			subject:"Submit your timesheet",
 			text:"Please submit your timesheet"
 		};	
-		job = schedule.scheduleJob({hour: 17, minute: 56}, function(){
+		job = schedule.scheduleJob({hour: 12, minute: 25}, function(){
 	   		console.log("in cronjob");
 			smtpTransport.sendMail(mailOptions, function(error, info){
 			    if(error){
@@ -65,11 +65,7 @@ var express = require('express'),
 	app.use(morgan('dev'));
 	mongoose.connect(config.database,function(error){
 		if(error)console.log(error);
-		else {
-			User.find({},function(err, users){
-				console.log(users);
-			});
-		}
+		else console.log("mongo connected");
 	});		
 	app.use(express.static(__dirname + '/public'));
 
@@ -79,7 +75,6 @@ var express = require('express'),
 
 	app.post('/register',function(req, res){
 		console.log(req.body);
-
 		var user = new User();
 		user.username = req.body.username;
 		user.password = req.body.password;		
@@ -92,7 +87,7 @@ var express = require('express'),
 					return res.send(err);
 				}
 			}
-			res.json({success:true,message:"User created"});
+			res.json({success:true,message:"You are successfully registered into nisum scheduler"});
 		})
 	});
 
