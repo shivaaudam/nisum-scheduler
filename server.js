@@ -3,6 +3,7 @@ var express = require('express'),
 	bodyParser = require('body-parser'),
 	morgan = require('morgan'),
 	mongoose = require('mongoose'),
+	mysql = require('mysql'),
 	config = require('./config'),
 	path = require('path'),
 	User = require('./app/models/user'),	
@@ -13,7 +14,6 @@ var express = require('express'),
 	mailOptions,
 	job,
 	Service = require('node-windows').Service;
-	
 	var smtpTransport = nodemailer.createTransport({
 		service : "Gmail",
 		auth:{
@@ -61,8 +61,8 @@ var express = require('express'),
 	});
 
 	app.use(morgan('dev'));
-	console.log(process.env.MONGOLAB_URI);
-	mongoose.connect(process.env.MONGOLAB_URI,function(error,db){
+	
+	mongoose.connect(config.database,function(error,db){
 		if(error) console.log(error);
 		else console.log("mongo connected"+'db:'+db);
 	});		

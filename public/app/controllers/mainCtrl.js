@@ -14,6 +14,7 @@ angular.module('mainCtrl',['userService'])
 					console.log(vm.success);
 				}
 				else{
+					vm.success ="";
 					vm.error = data.message;
 				}
 			})

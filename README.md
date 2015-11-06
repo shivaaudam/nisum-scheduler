@@ -1,1 +1,1 @@
-# nisum-scheduler
+Nisum internal planner application.

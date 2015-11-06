@@ -10,12 +10,23 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "async": "^1.5.0",
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.13.3",
     "express": "^4.13.3",
+    "hooks-fixed": "^1.1.0",
     "jsonwebtoken": "^5.0.5",
-    "mongoose": "^4.1.7",
+    "kareem": "^1.0.1",
+    "mongoose": "^4.2.3",
     "morgan": "^1.6.1",
-    "bcrypt-nodejs": "0.0.3"
+    "mpath": "^0.2.1",
+    "mpromise": "^0.5.5",
+    "mquery": "^1.6.3",
+    "ms": "^0.7.1",
+    "muri": "^1.1.0",
+    "mysql": "^2.9.0",
+    "regexp-clone": "0.0.1",
+    "sliced": "^1.0.1"
   },
   "author": "shiva shankar",
   "license": "ISC",
